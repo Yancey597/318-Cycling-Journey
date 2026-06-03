@@ -420,6 +420,7 @@ button {
 .map-card,
 .chart-card,
 .tips-grid,
+.equipment-board,
 .itinerary-panel {
   max-width: var(--content);
   margin: 0 auto;
@@ -842,6 +843,144 @@ button {
   text-transform: uppercase;
 }
 
+.equipment-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-width: var(--content);
+  margin: 0 auto;
+}
+
+.equipment-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--hairline);
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(17,17,17,0.035);
+}
+
+.equipment-card::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 22px;
+  bottom: 22px;
+  width: 1px;
+  background: rgba(17,17,17,0.08);
+}
+
+.equipment-card:nth-child(2n) .route-dot { background: var(--blue); }
+.equipment-card:nth-child(3n) .route-dot { background: var(--green); }
+.equipment-card:nth-child(4n) .route-dot { background: var(--amber); }
+
+.equipment-summary {
+  width: 100%;
+  min-height: 116px;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  padding: 19px 18px 17px 17px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.equipment-summary:hover {
+  background: rgba(255,255,255,0.32);
+}
+
+.equipment-summary .route-node {
+  padding-top: 7px;
+}
+
+.equipment-main {
+  min-width: 0;
+}
+
+.equipment-link {
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 9px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  background: rgba(17,17,17,0.045);
+  font-size: 12px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.equipment-count {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin-top: 10px;
+  padding: 0 9px;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  background: rgba(17,17,17,0.055);
+  font-size: 11px;
+  font-weight: 760;
+}
+
+.equipment-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.equipment-card.is-open .equipment-detail {
+  grid-template-rows: 1fr;
+}
+
+.equipment-detail-inner {
+  overflow: hidden;
+}
+
+.equipment-list {
+  list-style: none;
+  margin: 0 16px 16px 63px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.50);
+  border: 0.5px solid var(--hairline);
+}
+
+.equipment-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 10px 12px;
+}
+
+.equipment-item + .equipment-item {
+  border-top: 0.5px solid var(--hairline);
+}
+
+.equipment-name,
+.equipment-quantity {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.equipment-name {
+  color: var(--text-secondary);
+}
+
+.equipment-quantity {
+  max-width: 112px;
+  color: var(--text);
+  font-weight: 780;
+  text-align: right;
+}
+
 .tips-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -930,6 +1069,10 @@ button {
     min-height: auto;
   }
 
+  .equipment-board {
+    grid-template-columns: 1fr;
+  }
+
   .hero-stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -941,6 +1084,7 @@ button {
   .tips-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 @media (max-width: 640px) {
@@ -1083,6 +1227,10 @@ button {
     border-radius: 24px;
   }
 
+  .equipment-card {
+    border-radius: 24px;
+  }
+
   .map-canvas {
     height: 350px;
   }
@@ -1133,11 +1281,22 @@ button {
     left: 18px;
   }
 
-  .day-summary {
+  .equipment-card::before {
+    left: 18px;
+    top: 20px;
+    bottom: 20px;
+  }
+
+  .day-summary,
+  .equipment-summary {
     min-height: 158px;
     grid-template-columns: 30px minmax(0, 1fr);
     gap: 12px;
     padding: 20px 16px 18px 14px;
+  }
+
+  .equipment-summary {
+    min-height: 112px;
   }
 
   .day-title {
@@ -1154,6 +1313,10 @@ button {
 
   .detail-groups {
     margin: -2px 14px 18px 56px;
+  }
+
+  .equipment-list {
+    margin: 0 14px 14px 56px;
   }
 
   .tips-grid {

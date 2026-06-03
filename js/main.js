@@ -3,6 +3,7 @@
   'use strict';
 
   var data = window.RouteData;
+  var equipment = window.RouteEquipment;
   var render = window.RouteRender;
   var map = window.RouteMap;
   var chart = window.RouteChart;
@@ -12,6 +13,14 @@
       var summary = event.target.closest('.day-summary');
       if (!summary) return;
       render.toggleDayCard(summary.closest('.day-card'));
+    });
+  }
+
+  function bindEquipmentCardEvents() {
+    document.getElementById('equipmentBoard').addEventListener('click', function (event) {
+      var summary = event.target.closest('.equipment-summary');
+      if (!summary) return;
+      render.toggleEquipmentCard(summary.closest('.equipment-card'));
     });
   }
 
@@ -75,7 +84,9 @@
 
     render.renderHeroStats(data.days, data.passes);
     render.renderDays(data.days, data.passes);
+    render.renderEquipment(equipment);
     render.renderTips();
+    bindEquipmentCardEvents();
     bindDayCardEvents();
     bindToolbarEvents();
     bindTopButton();

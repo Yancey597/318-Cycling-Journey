@@ -134,6 +134,58 @@
     }).join('');
   }
 
+  function renderEquipment(items) {
+    var target = document.getElementById('equipmentBoard');
+    if (!target || !items || !items.length) return;
+
+    var grouped = items.reduce(function (groups, item) {
+      var category = item.category || '其他';
+      if (!groups[category]) groups[category] = [];
+      groups[category].push(item);
+      return groups;
+    }, {});
+
+    target.innerHTML = Object.keys(grouped).map(function (category, index) {
+      var list = grouped[category].map(function (item) {
+        return [
+          '<li class="equipment-item">',
+          '  <span class="equipment-name">' + U.escapeHtml(item.name) + '</span>',
+          '  <span class="equipment-quantity">' + U.escapeHtml(item.quantity || '-') + '</span>',
+          '</li>'
+        ].join('');
+      }).join('');
+
+      return [
+        '<article class="equipment-card">',
+        '  <button class="equipment-summary" type="button" aria-expanded="false">',
+        '    <span class="route-node" aria-hidden="true"><span class="route-dot"></span></span>',
+        '    <span class="equipment-main">',
+        '      <span class="day-top">',
+        '        <span class="day-code">Pack ' + U.escapeHtml(String(index + 1).padStart(2, '0')) + '</span>',
+        '        <span class="equipment-link">查看装备</span>',
+        '      </span>',
+        '      <span class="day-title">' + U.escapeHtml(category) + '</span>',
+        '      <span class="equipment-count">' + grouped[category].length + ' 项装备</span>',
+        '    </span>',
+        '  </button>',
+        '  <div class="equipment-detail"><div class="equipment-detail-inner"><ul class="equipment-list">',
+        list,
+        '  </ul></div></div>',
+        '</article>'
+      ].join('');
+    }).join('');
+  }
+
+  function toggleEquipmentCard(card, forceOpen) {
+    var shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !card.classList.contains('is-open');
+    card.classList.toggle('is-open', shouldOpen);
+
+    var button = card.querySelector('.equipment-summary');
+    var detailText = card.querySelector('.equipment-link');
+    if (button) button.setAttribute('aria-expanded', String(shouldOpen));
+    if (detailText) detailText.textContent = shouldOpen ? '收起装备' : '查看装备';
+  }
+
   function toggleDayCard(card, forceOpen) {
     var shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !card.classList.contains('is-open');
     card.classList.toggle('is-open', shouldOpen);
@@ -168,7 +220,9 @@
     renderHeroStats: renderHeroStats,
     renderDayCard: renderDayCard,
     renderDays: renderDays,
+    renderEquipment: renderEquipment,
     renderTips: renderTips,
+    toggleEquipmentCard: toggleEquipmentCard,
     toggleDayCard: toggleDayCard,
     setFilter: setFilter,
     expandAll: expandAll
