@@ -1,4 +1,4 @@
-// Chart Initialization
+﻿// Chart Initialization
 (function () {
   'use strict';
 
@@ -26,6 +26,7 @@
     var isMobile = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
     var labels = [];
     var points = [];
+    var climbBars = [];
     var marks = [];
 
     mainDays.forEach(function (day) {
@@ -34,6 +35,10 @@
         value: day.eAlt,
         day: day,
         label: day.to || day.from
+      });
+      climbBars.push({
+        value: U.getClimb(day),
+        day: day
       });
       marks = marks.concat(createPassMarkPoints(day, passes));
     });
@@ -61,7 +66,7 @@
             '<b>D' + day.n + ' ' + U.escapeHtml(U.formatRoute(day)) + '</b>',
             '距离 ' + day.km + 'km',
             '海拔 ' + day.sAlt + ' → ' + day.eAlt + 'm',
-            '爬升 ' + U.getClimb(day) + 'm'
+            '累计爬升约 ' + U.getClimb(day) + 'm'
           ].join('<br>');
         }
       },
@@ -79,18 +84,32 @@
           margin: 16
         }
       },
-      yAxis: {
-        type: 'value',
-        name: '海拔 m',
-        min: 0,
-        max: 5600,
-        splitNumber: 7,
-        nameTextStyle: { color: '#8B867D', fontSize: 11 },
-        axisLabel: { color: '#8B867D', fontSize: 11 },
-        axisLine: { show: false },
-        axisTick: { show: false },
-        splitLine: { lineStyle: { color: 'rgba(23,23,23,.07)' } }
-      },
+      yAxis: [
+        {
+          type: 'value',
+          name: '海拔 m',
+          min: 0,
+          max: 5600,
+          splitNumber: 7,
+          nameTextStyle: { color: '#8B867D', fontSize: 11 },
+          axisLabel: { color: '#8B867D', fontSize: 11 },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          splitLine: { lineStyle: { color: 'rgba(23,23,23,.07)' } }
+        },
+        {
+          type: 'value',
+          name: '爬升 m',
+          min: 0,
+          max: 2800,
+          splitNumber: 4,
+          nameTextStyle: { color: '#8B867D', fontSize: 11 },
+          axisLabel: { color: '#8B867D', fontSize: 11 },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          splitLine: { show: false }
+        }
+      ],
       dataZoom: [
         {
           type: 'inside',
@@ -112,8 +131,25 @@
       ],
       series: [
         {
+          name: '每日爬升',
+          type: 'bar',
+          yAxisIndex: 1,
+          data: climbBars,
+          barWidth: isMobile ? 7 : 10,
+          itemStyle: {
+            color: 'rgba(60,127,167,.20)',
+            borderRadius: [5, 5, 0, 0]
+          },
+          emphasis: {
+            itemStyle: { color: 'rgba(60,127,167,.32)' }
+          },
+          z: 1
+        },
+        {
+          name: '海拔',
           type: 'line',
           data: points,
+          yAxisIndex: 0,
           smooth: 0.18,
           symbol: 'circle',
           symbolSize: isMobile ? 5 : 6,

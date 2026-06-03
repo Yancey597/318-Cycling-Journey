@@ -17,6 +17,7 @@
   }
 
   function getClimb(day) {
+    if (typeof day.climb === 'number') return day.climb;
     return Math.max(Number(day.eAlt) - Number(day.sAlt), 0);
   }
 

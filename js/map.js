@@ -1,4 +1,4 @@
-// Map Initialization
+﻿// Map Initialization
 (function () {
   'use strict';
 
@@ -26,7 +26,7 @@
     target.innerHTML = [
       '<div class="map-empty">',
       '  <div class="map-empty-card">',
-      '    <b>地图暂时无法加载</b>',
+      '    <b>鍦板浘鏆傛椂鏃犳硶鍔犺浇</b>',
       '    <span>' + U.escapeHtml(message) + '</span>',
       '  </div>',
       '</div>'
@@ -43,10 +43,12 @@
 
   function createDayPopup(day) {
     var climb = U.getClimb(day);
+    var restHint = day.hasNextRest ? '<br><span>次日休整</span>' : '';
     return [
       '<div class="map-popup">',
       '  <b>D' + U.escapeHtml(day.n) + ' ' + U.escapeHtml(U.formatRoute(day)) + '</b>',
       '  <span>距离 ' + U.escapeHtml(day.km) + 'km · 爬升 ' + U.escapeHtml(climb) + 'm</span>',
+      restHint,
       '</div>'
     ].join('');
   }
@@ -85,8 +87,7 @@
       options = options || {};
       var point = U.wgs2gcj(day.c[2], day.c[3]);
       var markerClass = 'map-marker';
-      if (day.rest) markerClass += ' is-rest';
-      if (day.opt) markerClass += ' is-option';
+      if (day.hasNextRest) markerClass += ' is-rest';
       var marker = new AMap.Marker({
         position: new AMap.LngLat(point[0], point[1]),
         offset: new AMap.Pixel(options.offsetX || -11, options.offsetY || -11),
@@ -105,16 +106,21 @@
       });
     }
 
+    var restDaysByPreviousStop = days.reduce(function (lookup, day) {
+      if (!day.rest) return lookup;
+      var restStop = day.from.replace('休整', '');
+      var previousDay = days.find(function (candidate) {
+        return !candidate.rest && candidate.to === restStop;
+      });
+      if (previousDay) lookup[previousDay.n] = true;
+      return lookup;
+    }, {});
+
     days.filter(function (day) {
       return !day.rest;
     }).forEach(function (day) {
-      addDayMarker(day, { zIndex: day.opt ? 60 : 50 });
-    });
-
-    days.filter(function (day) {
-      return day.rest;
-    }).forEach(function (day) {
-      addDayMarker(day, { offsetX: -11, offsetY: -34, zIndex: 120 });
+      var markerDay = Object.assign({}, day, { hasNextRest: Boolean(restDaysByPreviousStop[day.n]) });
+      addDayMarker(markerDay, { zIndex: 50 });
     });
 
     passes.forEach(function (pass) {

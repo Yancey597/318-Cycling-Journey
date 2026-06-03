@@ -307,12 +307,7 @@
     "quantity": "1张"
   },
   {
-    "category": "可选提升",
-    "name": "备用眼镜布/防雾湿巾",
-    "quantity": "若干"
-  },
-  {
-    "category": "可选提升",
+    "category": "防晒防雨保暖",
     "name": "小型保温毯",
     "quantity": "1个"
   },
