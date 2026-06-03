@@ -844,20 +844,23 @@ button {
 }
 
 .equipment-board {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  column-count: 2;
+  column-gap: 10px;
   max-width: var(--content);
   margin: 0 auto;
 }
 
 .equipment-card {
   position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 0.5px solid var(--hairline);
   background: var(--surface);
   box-shadow: 0 10px 28px rgba(17,17,17,0.035);
+  break-inside: avoid;
 }
 
 .equipment-card::before {
@@ -1070,7 +1073,7 @@ button {
   }
 
   .equipment-board {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 
   .hero-stats {
