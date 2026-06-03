@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>318 川藏南线骑行计划 | Yancey's 318 Cycling Journey</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="页面导航">
+    <a class="brand" href="#top" aria-label="回到顶部">
+      <span class="brand-mark">318</span>
+      <span>Yancey's Cycling Journey</span>
+    </a>
+    <div class="nav-links">
+      <a href="#route-map">地图</a>
+      <a href="#elevation">海拔</a>
+      <a href="#days">行程</a>
+      <a href="#tips">安全</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <section class="hero-copy" aria-labelledby="hero-title">
+        <p class="eyebrow">Chengdu to Lhasa · G318</p>
+        <h1 id="hero-title">318 川藏南线骑行计划</h1>
+        <p class="hero-lead">成都出发，一路向西，穿越高山峡谷抵达拉萨。</p>
+        <div class="hero-stats" id="heroStats" aria-label="路线总览统计"></div>
+      </section>
+
+      <aside class="route-dossier" aria-label="318 路线档案">
+        <div class="dossier-head">
+          <span>Route dossier</span>
+          <strong>318 South Line</strong>
+        </div>
+        <div class="dossier-direction">
+          <span>成都</span>
+          <i></i>
+          <span>拉萨</span>
+        </div>
+        <div class="dossier-metrics">
+          <div><span>Plan</span><b>25 + 1 天</b></div>
+          <div><span>Distance</span><b>约 2,077 km</b></div>
+          <div><span>Highest</span><b>5,013 m</b></div>
+          <div><span>Passes</span><b>14 座</b></div>
+        </div>
+        <p>尽管他们看起来更强壮，但是我有胆量去征服海洋。</p>
+      </aside>
+    </header>
+
+    <section class="section" id="route-map">
+      <div class="section-header">
+        <p class="section-kicker">Route map</p>
+        <h2>路线地图</h2>
+        <p>显示主线轨迹、每日住宿点和 14 座高山垭口。</p>
+      </div>
+      <div class="map-card">
+        <div id="amap" class="map-canvas" role="img" aria-label="318 川藏南线地图"></div>
+        <div class="map-legend" aria-label="地图图例">
+          <span><i class="legend-route"></i>骑行住宿</span>
+          <span><i class="legend-rest"></i>休整日</span>
+          <span><i class="legend-option"></i>可选日</span>
+          <span><i class="legend-pass"></i>垭口</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="elevation">
+      <div class="section-header section-header-row">
+        <div>
+          <p class="section-kicker">Elevation</p>
+          <h2>海拔剖面图</h2>
+          <p>按 25 天主计划绘制，包含休整日，排除可选 D26。</p>
+        </div>
+        <span class="section-hint">拖动底部滑块查看细节</span>
+      </div>
+      <div class="chart-card">
+        <div id="elevationChart" class="chart-stage" aria-label="318 每日海拔剖面图"></div>
+      </div>
+    </section>
+
+    <section class="section" id="days">
+      <div class="section-header section-header-row">
+        <div>
+          <p class="section-kicker">Daily archive</p>
+          <h2>每日行程</h2>
+          <p>按天查看距离、爬升、海拔变化、补给点和个人提示。</p>
+        </div>
+      </div>
+
+      <div class="toolbar" aria-label="行程筛选与展开控制">
+        <div class="filter-tabs" role="tablist" aria-label="筛选行程">
+          <button class="is-active" data-filter="all" type="button">全部</button>
+          <button data-filter="ride" type="button">骑行日</button>
+          <button data-filter="rest" type="button">休整日</button>
+          <button data-filter="hard" type="button">关键难日</button>
+        </div>
+        <div class="view-actions">
+          <button data-action="expand" type="button">展开</button>
+          <button data-action="collapse" type="button">收起</button>
+        </div>
+      </div>
+
+      <div class="day-list" id="dayList"></div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="section-header">
+        <p class="section-kicker">Safety checklist</p>
+        <h2>骑行安全须知</h2>
+        <p>出发前逐条检查，尤其关注下坡、隧道、高海拔和补给缺口。</p>
+      </div>
+      <div class="tips-grid" id="tipsGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Thanks For Yancey & Yancey's friends.
+    <br/>
+    <br/>
+    <a href="https://beian.mps.gov.cn/#/query/webSearch?code=42011502001725" rel="noreferrer" target="_blank" class="site-footer" ">鄂公网安备42011502001725号</a>
+    <br/>
+    <a href="https://beian.miit.gov.cn/" class="site-footer">鄂ICP备2024050350号-1</a>
+  </footer>
+
+  <button id="topBtn" class="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    window._AMapSecurityConfig = { securityJsCode: '847f3e7e98939963b9309484870b8845' };
+  </script>
+  <script src="https://webapi.amap.com/loader.js"></script>
+  <script src="https://cdn.jsdmirror.com/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
