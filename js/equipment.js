@@ -82,6 +82,16 @@
   },
    {
     "category": "防晒防雨保暖",
+    "name": "冲锋衣",
+    "quantity": "1件"
+  },
+   {
+    "category": "防晒防雨保暖",
+    "name": "冲锋裤",
+    "quantity": "1件"
+  },
+   {
+    "category": "防晒防雨保暖",
     "name": "防水鞋套",
     "quantity": "1双"
   },
