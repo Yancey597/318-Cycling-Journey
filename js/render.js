@@ -176,6 +176,39 @@
     }).join('');
   }
 
+  function renderPacking(packing) {
+    var target = document.getElementById('packingBoard');
+    if (!target || !packing || !packing.length) return;
+
+    target.innerHTML = packing.map(function (bag, index) {
+      var sections = bag.sections.map(function (section) {
+        var items = section.items.map(function (item) {
+          return '<li>' + U.escapeHtml(item) + '</li>';
+        }).join('');
+
+        return [
+          '<div class="packing-group">',
+          '  <h3>' + U.escapeHtml(section.title) + '</h3>',
+          '  <ul>' + items + '</ul>',
+          '</div>'
+        ].join('');
+      }).join('');
+
+      return [
+        '<article class="packing-card">',
+        '  <div class="packing-card-head">',
+        '    <span class="day-code">Bag ' + U.escapeHtml(String(index + 1).padStart(2, '0')) + '</span>',
+        '    <span class="packing-capacity">' + U.escapeHtml(bag.capacity) + '</span>',
+        '  </div>',
+        '  <h3>' + U.escapeHtml(bag.bag) + '</h3>',
+        '  <p class="packing-role">' + U.escapeHtml(bag.role) + '</p>',
+        '  <p class="packing-note">' + U.escapeHtml(bag.note) + '</p>',
+        '  <div class="packing-groups">' + sections + '</div>',
+        '</article>'
+      ].join('');
+    }).join('');
+  }
+
   function toggleEquipmentCard(card, forceOpen) {
     var shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !card.classList.contains('is-open');
     card.classList.toggle('is-open', shouldOpen);
@@ -221,6 +254,7 @@
     renderDayCard: renderDayCard,
     renderDays: renderDays,
     renderEquipment: renderEquipment,
+    renderPacking: renderPacking,
     renderTips: renderTips,
     toggleEquipmentCard: toggleEquipmentCard,
     toggleDayCard: toggleDayCard,

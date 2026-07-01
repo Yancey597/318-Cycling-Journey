@@ -6,22 +6,22 @@
   window.RouteEquipment = [
   {
     "category": "骑行核心",
-    "name": "GIANT TCR ADV 1+ KOM-NJ",
+    "name": "公路车",
     "quantity": "1辆"
   },
   {
     "category": "骑行核心",
-    "name": "Decathlon RCR 头盔",
+    "name": "骑行头盔",
     "quantity": "1个"
   },
   {
     "category": "骑行核心",
-    "name": "Decathlon NXT 眼镜",
+    "name": "骑行眼镜",
     "quantity": "1副"
   },
   {
     "category": "骑行核心",
-    "name": "Castelli 骑行手套-半指",
+    "name": "半指骑行手套",
     "quantity": "1双"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "category": "骑行核心",
-    "name": "Decathlon RCR 锁鞋",
+    "name": "锁鞋",
     "quantity": "1双"
   },
   {
@@ -41,32 +41,32 @@
   },
   {
     "category": "骑行核心",
-    "name": "骑行裤轮换（旧蝎子+RCR+新蝎子）",
-    "quantity": "3条（2旧+1新）"
+    "name": "骑行裤",
+    "quantity": "3条"
   },
   {
     "category": "骑行核心",
-    "name": "Decathlon RCR 骑行服",
-    "quantity": "2件（至少新购1件）"
+    "name": "骑行服",
+    "quantity": "2件"
   },
   {
     "category": "骑行核心",
-    "name": "Decathlon 长袖排汗衫/背心",
+    "name": "长袖排汗衫/背心",
     "quantity": "1-2件"
   },
   {
     "category": "防晒防雨保暖",
-    "name": "Mistine 防晒霜 SPF50+",
+    "name": "防晒霜",
     "quantity": "2支"
   },
   {
     "category": "防晒防雨保暖",
-    "name": "凡士林 防晒唇膏",
+    "name": "唇膏",
     "quantity": "1支"
   },
   {
     "category": "防晒防雨保暖",
-    "name": "头巾/魔术头巾/防晒面罩",
+    "name": "加绒面罩/防晒面罩",
     "quantity": "2条"
   },
   {
@@ -74,29 +74,25 @@
     "name": "防风马甲",
     "quantity": "1件"
   },
+
   {
     "category": "防晒防雨保暖",
-    "name": "分体式雨衣",
+    "name": "薄抓绒衣",
     "quantity": "1件"
+  },
+   {
+    "category": "防晒防雨保暖",
+    "name": "防水鞋套",
+    "quantity": "1双"
   },
   {
     "category": "防晒防雨保暖",
-    "name": "薄抓绒/轻薄保暖长袖",
-    "quantity": "1件"
-  },
-  {
-    "category": "防晒防雨保暖",
-    "name": "StormCrew 防晒衣",
-    "quantity": "1件"
-  },
-  {
-    "category": "防晒防雨保暖",
-    "name": "犀牛 10L尾包",
+    "name": "尾包",
     "quantity": "1个"
   },
   {
     "category": "防晒防雨保暖",
-    "name": "犀牛上管包/车把包",
+    "name": "上管包/车头包",
     "quantity": "1个"
   },
   {
@@ -106,22 +102,17 @@
   },
   {
     "category": "修车工具",
-    "name": "正新云内胎",
+    "name": "真空胎",
     "quantity": "1条"
   },
   {
     "category": "修车工具",
-    "name": "米其林 PowerCup Protection",
-    "quantity": "3条"
-  },
-  {
-    "category": "修车工具",
-    "name": "GIANT 补胎液/气嘴工具",
+    "name": "补胎液/气嘴工具",
     "quantity": "3瓶/2个"
   },
   {
     "category": "修车工具",
-    "name": "CYCPLUS 气泵",
+    "name": "打气泵",
     "quantity": "1个"
   },
   {
@@ -131,19 +122,14 @@
   },
   {
     "category": "修车工具",
-    "name": "乐百客棘轮扳手套装",
+    "name": "棘轮扳手套装",
     "quantity": "1个"
   },
   {
     
     "category": "修车工具",
-    "name": "屋伏石次抛链条油",
+    "name": "链条油",
     "quantity": "8-10支"
-  },
-  {
-    "category": "修车工具",
-    "name": "SHIMANO L05A 来令片",
-    "quantity": "1-2对"
   },
   {
     "category": "修车工具",
@@ -157,27 +143,22 @@
   },
   {
     "category": "修车工具",
-    "name": "小抹布/湿巾",
+    "name": "小抹布/湿巾/浴帽",
     "quantity": "1-2块"
   },
   {
     "category": "电子设备",
-    "name": "一加 15",
+    "name": "运动手表/充电器",
     "quantity": "1台"
   },
   {
     "category": "电子设备",
-    "name": "一加 Watch 2/充电器",
-    "quantity": "1台"
-  },
-  {
-    "category": "电子设备",
-    "name": "一加 150W 充电宝",
+    "name": "充电宝",
     "quantity": "1个"
   },
   {
     "category": "电子设备",
-    "name": "一加 100W 双口充电器",
+    "name": "双口充电器",
     "quantity": "1个"
   },
   {
@@ -187,22 +168,22 @@
   },
   {
     "category": "电子设备",
-    "name": "Binavi Air 码表",
+    "name": "码表",
     "quantity": "1个"
   },
   {
     "category": "电子设备",
-    "name": "迈极炫 CBL1600Pro 车灯",
+    "name": "前车灯",
     "quantity": "1个"
   },
   {
     "category": "电子设备",
-    "name": "迈极炫 SM50PRO 尾灯",
+    "name": "尾灯",
     "quantity": "1个"
   },
   {
     "category": "电子设备",
-    "name": "OPPO Enco X5",
+    "name": "无线耳机",
     "quantity": "1副"
   },
   {
@@ -247,13 +228,13 @@
   },
   {
     "category": "补给饮食",
-    "name": "ELITE 水壶",
+    "name": "水壶",
     "quantity": "2个"
   },
   {
     "category": "补给饮食",
-    "name": "WIN 能量胶（海盐西瓜+双效）",
-    "quantity": "海盐西瓜20-24根；双效6-8根"
+    "name": "能量胶",
+    "quantity": "26-32根"
   },
   {
     "category": "补给饮食",
@@ -262,12 +243,12 @@
   },
   {
     "category": "日常衣物",
-    "name": "FPA 速干T恤",
+    "name": "速干T恤",
     "quantity": "1件"
   },
   {
     "category": "日常衣物",
-    "name": "LAZYDAY 长裤",
+    "name": "日常长裤",
     "quantity": "1条"
   },
   {
@@ -313,33 +294,89 @@
   },
   {
     "category": "电子设备",
-    "name": "DJI Neo",
+    "name": "运动相机",
     "quantity": "1台"
   },
   {
     "category": "电子设备",
-    "name": "DJI Neo 电池/充电配件",
-    "quantity": "3块电池+充电线/充电管家"
-  },
-  {
-    "category": "电子设备",
-    "name": "DJI Action 5PRO",
-    "quantity": "1台"
-  },
-  {
-    "category": "电子设备",
-    "name": "运动相机电池/存储卡",
-    "quantity": "2-3块电池；2张存储卡"
-  },
-  {
-    "category": "电子设备",
-    "name": "运动相机支架/自拍杆",
-    "quantity": "1个主支架+1个轻量自拍杆"
+    "name": "支架/自拍杆/胸带",
+    "quantity": "1个"
   },
   {
     "category": "电子设备",
     "name": "影像设备防震防水收纳",
     "quantity": "1套"
   },
-];
+  ];
+
+  window.RoutePacking = [
+    {
+      bag: "上管包",
+      capacity: "2L",
+      role: "白天随手包",
+      note: "骑行中最常用、临停就要拿的东西；只放核心修车小件，避免 2L 包过满。",
+      sections: [
+        {
+          title: "随手补给",
+          items: ["能量胶 2-4 根", "宝矿力 1-2 条", "小面包/糖果", "盐丸"]
+        },
+        {
+          title: "证件与护理",
+          items: ["身份证", "校园卡", "少量现金", "防晒霜小瓶", "唇膏", "纸巾/湿巾", "小药片"]
+        },
+        {
+          title: "电子小件",
+          items: ["充电宝", "短数据线"]
+        },
+        {
+          title: "核心修车工具",
+          items: ["打气泵", "真空胎辣条", "气嘴工具", "棘轮扳手套装", "扎带", "电工胶布", "小抹布/湿巾"]
+        }
+      ]
+    },
+    {
+      bag: "车头包",
+      capacity: "8L",
+      role: "天气应急包 + 轻量衣物包",
+      note: "放轻、软、体积大、白天可能要拿的东西；不放重工具和大电子设备。",
+      sections: [
+        {
+          title: "降温与防风",
+          items: ["防风马甲", "薄抓绒衣", "长袖排汗衫/背心"]
+        },
+        {
+          title: "长下坡保暖",
+          items: ["骑行手套-薄长指/保暖", "加绒面罩/防晒面罩", "骑行袜 1 双", "防水鞋套"]
+        },
+        {
+          title: "防水收纳",
+          items: ["密封袋/自封袋", "电子设备防水袋", "小型保温毯"]
+        }
+      ]
+    },
+    {
+      bag: "尾包",
+      capacity: "10L",
+      role: "住宿生活包",
+      note: "晚上到住处才用的东西，用小袋拆成衣物、洗漱药品、电子和大件维修耗材。",
+      sections: [
+        {
+          title: "衣物袋",
+          items: ["骑行服", "骑行裤", "骑行袜 2 双", "速干T恤", "日常长裤", "内裤 2-3 条", "拖鞋"]
+        },
+        {
+          title: "洗漱药品袋",
+          items: ["洗漱用品/剃须刀", "碘伏棉签/碘伏", "无菌纱布/敷料", "创可贴", "弹力绷带", "止泻药", "布洛芬/对乙酰氨基酚", "凡士林"]
+        },
+        {
+          title: "电子袋",
+          items: ["双口充电器", "运动手表/充电器", "电变便携充电线", "无线耳机", "运动相机", "支架/自拍杆/胸带", "影像设备防震防水收纳"]
+        },
+        {
+          title: "维修耗材",
+          items: ["真空胎", "补胎液/气嘴工具", "链条油", "浴帽"]
+        }
+      ]
+    }
+  ];
 })();

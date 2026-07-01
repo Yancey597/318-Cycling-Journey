@@ -4,6 +4,7 @@
 
   var data = window.RouteData;
   var equipment = window.RouteEquipment;
+  var packing = window.RoutePacking;
   var render = window.RouteRender;
   var map = window.RouteMap;
   var chart = window.RouteChart;
@@ -85,6 +86,7 @@
     render.renderHeroStats(data.days, data.passes);
     render.renderDays(data.days, data.passes);
     render.renderEquipment(equipment);
+    render.renderPacking(packing);
     render.renderTips();
     bindEquipmentCardEvents();
     bindDayCardEvents();
